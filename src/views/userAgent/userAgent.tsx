@@ -1,10 +1,8 @@
-"use client";
-
 import { BackToHome } from "@/components/backToHome/backToHome";
-import { useUserAgentContext } from "@/components/providers/userAgentProvider";
+import { headers } from "next/headers";
 
 export const UserAgent = () => {
-  const { userAgent } = useUserAgentContext();
+  const userAgent = headers().get("user-agent") || "No user agent";
 
   return (
     <div>
